@@ -1,6 +1,7 @@
 import express from 'express';
 import auth from '../middleware/auth.js';
 import {
+  createUser,
   getProfile,
   updateProfile,
   getAllUsers,
@@ -10,7 +11,8 @@ import {
 
 const router = express.Router();
 
-// All routes require authentication
+// All routes require authentication except user creation
+router.post('/', createUser);
 router.use(auth);
 
 router.get('/profile', getProfile);

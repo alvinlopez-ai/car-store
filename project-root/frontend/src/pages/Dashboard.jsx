@@ -139,8 +139,7 @@ export default function Dashboard({ onLogout }) {
     }
 
     try {
-      // For this demo, we'll add user through the login/register flow
-      // In production, you'd have an admin endpoint
+      await userService.createUser(newUser)
       setShowAddUser(false)
       setNewUser({ name: '', email: '', password: '' })
       fetchData()

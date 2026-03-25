@@ -78,6 +78,27 @@ export const deleteUser = async (id) => {
   }
 };
 
+// CREATE USER
+export const createUser = async (userData) => {
+  const token = localStorage.getItem('token');
+  const res = await fetch(`${API_URL}/users`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    },
+    body: JSON.stringify(userData)
+  });
+
+  const data = await res.json();
+
+  if (!res.ok) {
+    throw new Error(data.message);
+  }
+
+  return data;
+};
+
 // Service objects for compatibility
 export const authService = {
   logout
@@ -86,5 +107,6 @@ export const authService = {
 export const userService = {
   getProfile,
   getAllUsers,
-  deleteUser
+  deleteUser,
+  createUser
 };
