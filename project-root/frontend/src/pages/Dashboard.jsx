@@ -181,12 +181,20 @@ export default function Dashboard({ onLogout }) {
               <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
               {profile && <p className="text-gray-600">Welcome, {profile.name}!</p>}
             </div>
-            <button
-              onClick={handleLogout}
-              className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition duration-200"
-            >
-              Logout
-            </button>
+            <div className="flex space-x-4">
+              <button
+                onClick={() => navigate('/about')}
+                className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg transition duration-200"
+              >
+                About Bentley
+              </button>
+              <button
+                onClick={handleLogout}
+                className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition duration-200"
+              >
+                Logout
+              </button>
+            </div>
           </div>
         </div>
       </header>
